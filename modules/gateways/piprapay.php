@@ -98,8 +98,8 @@ function piprapay_link($params)
         } else {
             return '<div class="alert alert-danger">'.$response.'</div>';
         }
-    }else{
-        $baseUrl = $params['baseUrl'];
+    } else {
+        $baseUrl = rtrim($params['baseUrl'], '/');
     
         $invoiceId = $params['invoiceid'];
         $amount = $params['amount'];
@@ -110,11 +110,11 @@ function piprapay_link($params)
         $port = isset($parsedUrl['port']) ? ':' . $parsedUrl['port'] : '';
         
         $systemUrl = $scheme . '://' . $host . $port;
-        $callbackUrl = preg_replace('/(https?:\/\/)www\./i', '$1', $systemUrl . '/modules/gateways/callback/piprapay.php');
-        $returnUrl = preg_replace('/(https?:\/\/)www\./i', '$1', $params['returnurl']);
+        $callbackUrl = $systemUrl . '/modules/gateways/callback/piprapay.php';
+        $returnUrl = $params['returnurl'];
 
         $postData = [
-            'full_name'    => $params['clientdetails']['firstname'].' '.$params['clientdetails']['firstname'],
+            'full_name'    => $params['clientdetails']['firstname'] . ' ' . $params['clientdetails']['lastname'],
             'email_address' => ($params['clientdetails']['email'] == "") ? 'jhon@gmail.com' : $params['clientdetails']['email'],
             'mobile_number' => ($params['clientdetails']['phonenumber'] == "") ? '01700000000' : $params['clientdetails']['phonenumber'],
             'amount'       => $amount,
