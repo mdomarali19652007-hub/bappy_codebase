@@ -1,0 +1,46 @@
+<?php
+/* Smarty version 3.1.48, created on 2026-03-20 11:17:05
+  from '/home/cbonline/public_html/templates/lagom2/includes/menu/top-nav.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.48',
+  'unifunc' => 'content_69bcdf5943e574_65820232',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '1eadbc6735f26775d6eea3e9095d9cdb3afe7719' => 
+    array (
+      0 => '/home/cbonline/public_html/templates/lagom2/includes/menu/top-nav.tpl',
+      1 => 1767884118,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_69bcdf5943e574_65820232 (Smarty_Internal_Template $_smarty_tpl) {
+if (file_exists("templates/".((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/menu/overwrites/top-nav.tpl")) {?>
+    <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/menu/overwrites/top-nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+} else { ?>
+    <ul class="top-nav">
+        <?php if ($_smarty_tpl->tpl_vars['adminMasqueradingAsClient']->value || $_smarty_tpl->tpl_vars['adminLoggedIn']->value) {?>
+            <li>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['WEB_ROOT']->value;?>
+/logout.php?returntoadmin=1" class="" data-toggle="tooltip" data-placement="bottom" title="<?php if ($_smarty_tpl->tpl_vars['adminMasqueradingAsClient']->value) {
+echo $_smarty_tpl->tpl_vars['LANG']->value['adminmasqueradingasclient'];?>
+ <?php echo $_smarty_tpl->tpl_vars['LANG']->value['logoutandreturntoadminarea'];
+} else {
+echo $_smarty_tpl->tpl_vars['LANG']->value['adminloggedin'];?>
+ <?php echo $_smarty_tpl->tpl_vars['LANG']->value['returntoadminarea'];
+}?>">
+                    <i class="lm lm-arrow-fat-right"></i>
+                </a>
+            </li>
+        <?php }?>
+        <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['template']->value)."/includes/navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('navbar'=>$_smarty_tpl->tpl_vars['secondaryNavbar']->value), 0, true);
+?>
+    </ul>
+<?php }?>    <?php }
+}
